@@ -17,8 +17,7 @@ while (time.time()-start_time) < 40:
     print("Humidity: %0.1f %%" % bme680.relative_humidity)
     print("Pressure: %0.3f hPa" % bme680.pressure)
     print("Altitude = %0.2f meters" % bme680.altitude)
-
-	list1=[time.time(),bme680.temperature,bme680.gas,bme680.relative_humidity,bme680.pressure,bme680.altitude]
-	print(list1)
+    list1=[time.time(),bme680.temperature,bme680.gas,bme680.relative_humidity,bme680.pressure,bme680.altitude]
+    print(list1)
     time.sleep(2)
 
