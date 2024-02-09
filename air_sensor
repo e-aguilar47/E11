@@ -47,6 +47,19 @@ pm25 = PM25_UART(uart, reset_pin)
 
 print("Found PM2.5 sensor, reading data...")
 
+import csv
+import time
+meta_data=['time','pm2.5','pm10']
+file=open('aq_data.csv',"w",newline='')
+writer=csv.writer(file)
+writer.writerow(meta_data)
+while True:
+    now=time.time()
+    data=pm25.read()
+    data_out=[now,data['pm2.5'],data['pm10']
+    writer.writerow(data_out)
+
+
 start_time=time.time()
 while (time.time()-start_time) < 30:
     time.sleep(1)
