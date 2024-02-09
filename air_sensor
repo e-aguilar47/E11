@@ -53,11 +53,12 @@ meta_data=['time','pm2.5','pm10']
 file=open('aq_data.csv',"w",newline='')
 writer=csv.writer(file)
 writer.writerow(meta_data)
-while True:
-    now=time.time()
-    data=pm25.read()
-    data_out=[now,data['pm2.5'],data['pm10']
-    writer.writerow(data_out)
+
+#while True:
+    #now=time.time()
+    #data=pm25.read()
+    #data_out=[now,data['pm2.5'],data['pm10']
+    #writer.writerow(data_out)
 
 
 start_time=time.time()
@@ -92,3 +93,8 @@ while (time.time()-start_time) < 30:
     print("Particles > 5.0um / 0.1L air:", aqdata["particles 50um"])
     print("Particles > 10 um / 0.1L air:", aqdata["particles 100um"])
     print("---------------------------------------")
+
+    now=time.time()
+    data=pm25.read()
+    data_out=[now,data['pm2.5'],data['pm10']
+    writer.writerow(data_out)
