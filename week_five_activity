@@ -37,7 +37,7 @@ print("Found PM2.5 sensor, reading data...")
 import csv
 #meta_data=['time','pm10 standard','pm25 standard','pm100 standard']
 #file=open('aq_data.csv',"w",newline='')
-#writer=csv.writer(file)
+writer=csv.writer(file)
 #writer.writerow(meta_data)
 
 
