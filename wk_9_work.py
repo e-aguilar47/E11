@@ -8,7 +8,7 @@ def my_callback(channel):
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(26, GPIO.IN)
-GPIO.add_event_detect(17, GPIO.FALLING, callback=my_callback)
+GPIO.add_event_detect(26, GPIO.FALLING, callback=my_callback)
 
 while True:
    time.sleep(20)
