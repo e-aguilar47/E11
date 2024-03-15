@@ -4,7 +4,7 @@ import time
 counts=0
 
 def my_callback(channel):
-   ptint(f"Count detected at{time.time()}")
+   print(f"Count detected at{time.time()}")
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(26, GPIO.IN)
