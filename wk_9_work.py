@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 import sys
+import csv
 
 counts=0
 start_time=time.time
