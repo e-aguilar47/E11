@@ -28,4 +28,6 @@ while (time.time()-start_time)<run_time:
    print(f"Number of counts measured is {counts}")
    data_list=[time.time,counts]
    writer.writerow(data_list)
+
+file.close
  
