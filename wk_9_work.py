@@ -7,11 +7,12 @@ counts=0
 start_time=time.time()
 run_time=int(sys.argv[1])
 
-meta_data=['time', 'counts']
 filename=sys.argv[2]
 file=open(filename,'w',newline='')
 writer=csv.writer(file)
+meta_data=['time', 'counts']
 writer.writerow(meta_data)
+print(meta_data)
 
 def my_callback(channel):
    global counts
