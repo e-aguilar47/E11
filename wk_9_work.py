@@ -24,6 +24,7 @@ GPIO.add_event_detect(26, GPIO.FALLING, callback=my_callback)
 
 while (time.time()-start_time)<run_time:
    time.sleep(10)
-   global counts=0
+   global counts
+   counts=0
    print(f"Number of counts measured is {counts}")
  
