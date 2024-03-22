@@ -19,7 +19,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(26, GPIO.IN)
 GPIO.add_event_detect(26, GPIO.FALLING, callback=my_callback)
 
-while (time.time()-start_time)<run_time::
+while (time.time()-start_time)<run_time:
    time.sleep(10)
    print(f"Number of counts measured is {counts}")
  
