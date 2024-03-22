@@ -9,6 +9,8 @@ run_time=int(sys.argv[1])
 
 filename=sys.argv[2]
 file=open(filename,'w',newline='')
+writer=csv.writer(file)
+writer.writerow(meta_data)
 
 def my_callback(channel):
    global counts
