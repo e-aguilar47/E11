@@ -7,7 +7,6 @@ counts=0
 start_time=time.time()
 run_time=int(sys.argv[1])
 
-filename='data.csv'
 filename=sys.argv[2]
 file=open(filename,'w',newline='')
 writer=csv.writer(file)
