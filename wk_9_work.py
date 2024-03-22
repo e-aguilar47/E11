@@ -29,5 +29,5 @@ while (time.time()-start_time)<run_time:
    data_list=[time.time,counts]
    writer.writerow(data_list)
 
-file.close
+file.close()
  
