@@ -13,6 +13,8 @@ file=open(filename,'w',newline='')
 writer=csv.writer(file)
 
 def my_callback(channel):
+   global counts
+   counts+=1
    print(f"Count detected at{time.time()}")
 
 GPIO.setmode(GPIO.BCM)
