@@ -44,18 +44,28 @@ import csv
 filename=sys.argv[2]
 file=open(filename,'w',newline='')
 writer=csv.writer(file)
-meta_data=['Time','pm10 standard','pm25 standard','pm100 standard','temperature','gas','humidity','pressure','altitude','time','counts']
+meta_data=['Time','pm10 standard','pm25 standard','pm100 standard','temperature','gas','humidity','pressure','altitude','counts']
 writer.writerow(meta_data)
 print(meta_data)
 
 #time.sleep(120)
 
+def my_callback(channel):
+   global counts
+   counts+=1
+   print(f"Count detected at {time.time()}")
+    
+counts=0
 start_time=time.time()
 
 run_time=int(sys.argv[1])
 
 now=time.time()
 while (now-start_time)<run_time:
+    time.sleep(10)
+    print(f"Number of counts measured is {counts}")
+    now=time.time()
+    writer.writerow(data_list)
     time.sleep(1)
     print("\nTemperature: %0.1f C" % bme680.temperature)
     print("Gas: %d ohm" % bme680.gas)
@@ -93,28 +103,28 @@ while (now-start_time)<run_time:
     print("---------------------------------------")
 
     now=time.time()
-    data_out=[now,aqdata['pm10 standard'],aqdata['pm25 standard'],aqdata['pm100 standard'],bme680.temperature,bme680.gas,bme680.relative_humidity,bme680.pressure,bme680.altitude]
+    data_out=[now,aqdata['pm10 standard'],aqdata['pm25 standard'],aqdata['pm100 standard'],bme680.temperature,bme680.gas,bme680.relative_humidity,bme680.pressure,bme680.altitude,counts]
     writer.writerow(data_out)
 
-counts=0
-start_time=time.time()
-run_time=int(sys.argv[1])
+#counts=0
+#start_time=time.time()
+#run_time=int(sys.argv[1])
 
-def my_callback(channel):
-   global counts
-   counts+=1
-   print(f"Count detected at {time.time()}")
+#def my_callback(channel):
+   #global counts
+   #counts+=1
+   #print(f"Count detected at {time.time()}")
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(17, GPIO.IN)
-GPIO.add_event_detect(17, GPIO.FALLING, callback=my_callback)
+#GPIO.setmode(GPIO.BCM)
+#GPIO.setup(17, GPIO.IN)
+#GPIO.add_event_detect(17, GPIO.FALLING, callback=my_callback)
 
-while (time.time()-start_time)<run_time:
-   time.sleep(10)
-   print(f"Number of counts measured is {counts}")
-   now=time.time()
-   data_list=[now,counts]
-   writer.writerow(data_list)
+#while (time.time()-start_time)<run_time:
+   #time.sleep(10)
+   #print(f"Number of counts measured is {counts}")
+   #now=time.time()
+   #data_list=[now,counts]
+   #writer.writerow(data_list)
 
 file.close()
  
